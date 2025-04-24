@@ -1,7 +1,15 @@
 
 package javabasico;
 
+import date.Ciclos;
+import date.Condicionales;
+import date.EstructuraArrayList;
+import date.EstructuraDatoArrays;
+import date.EstructuraDatoHasMap;
+import date.OperacionesComparacion;
+import date.OperadoresAretmeticos;
 import date.OperadoresLogicos;
+import date.TipoDato;
 import java.util.Scanner;
 
 public class JavaBasico {
@@ -23,11 +31,12 @@ public class JavaBasico {
         System.out.println("9. Listas");
         System.out.println("10.Mapa de Valores");
         
-        
-       Scanner sc = new Scanner(System.in);
-       
+        try {
+            Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese una opcion:  ");
        int opcion = sc.nextInt();
        System.out.println("La opcion seleccionada es: "+opcion);
+       
        
        boolean salir = true;
        while(salir){
@@ -38,23 +47,47 @@ public class JavaBasico {
                    break;
                    
                case 2:
-                   OperadoresAretmeticos
+                   OperadoresAretmeticos oa = new  OperadoresAretmeticos();
+                   oa.principal();
+                   break;
+                   
                case 3:
+                   OperacionesComparacion oc = new OperacionesComparacion();
+                   oc.principal();
+                   break;
+                  
                    
                case 4:
+                   TipoDato tp = new TipoDato();
+                   tp.principal();
+                   break;
                    
                case 5:
-                   
+                   Condicionales c = new Condicionales();
+                   c.valideInformacionPersona();
+                   break;
                case 6:
-                   
+                   Ciclos ciclos = new Ciclos();
+                   ciclos.cicloFor();
+                   break;
                case 7:
-                   
+                   //Ejemplo realizado en la clase Principal
                case 8:
+                   EstructuraDatoArrays e = new EstructuraDatoArrays ();
+                   e.principal();
+                   break;
                    
                case 9:
+                   EstructuraArrayList eal = new EstructuraArrayList ();
+                   eal.peincipal();
+                   break;
+         
                    
                case 10:
-               
+                   EstructuraDatoHasMap edhm = new EstructuraDatoHasMap();
+                   edhm.principales();
+                   break;
+                   
                    
               default:
                   System.out.println("Opcion no encontrada, Intende nuevamente");
@@ -63,6 +96,13 @@ public class JavaBasico {
            }
            salir = false;
        }
+            
+        } catch (Exception e) {
+            System.out.println("Ocurrio un Error!: por favor ingrese un numero valido: "+ e.getMessage());
+        }
+        
+        
+       
  
     }
     
