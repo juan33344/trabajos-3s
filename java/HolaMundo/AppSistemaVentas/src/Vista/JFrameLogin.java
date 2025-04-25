@@ -5,6 +5,7 @@
 package Vista;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,7 +39,7 @@ public class JFrameLogin extends javax.swing.JFrame {
         btnIngresar = new javax.swing.JToggleButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtClave = new javax.swing.JPasswordField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -93,8 +94,8 @@ public class JFrameLogin extends javax.swing.JFrame {
         jLabel5.setText("Contraseña");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 120, 40));
 
-        jPasswordField1.setText("jPasswordField1");
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 190, 30));
+        txtClave.setText("jPasswordField1");
+        getContentPane().add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 190, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -104,7 +105,28 @@ public class JFrameLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        System.out.println("ESTOY Click en este Boton");
+        //Optener Datos de los textField
+        String usuario = txtUsuario.getText();
+        String Clave = txtClave.getText();
+
+        if (usuario.isEmpty() || Clave.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor Ingrese"
+                    + " un usuario o una contraseña");
+            System.out.println("Por favor Ingrese"
+                    + " un usuario o una contraseña");
+
+        } else {
+            //JOptionPane.showMessageDialog(null, "Felicidades Ingreso a su Sistema ");
+            JFrameMenu jfm = new JFrameMenu();
+            jfm.setVisible(true);
+            this.dispose();
+
+            
+        }
+
+//        System.out.println("ESTOY Click en este Boton");
+        System.out.println("usuario:  " + usuario);
+        System.out.println("Clave: " + Clave);
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**
@@ -150,7 +172,7 @@ public class JFrameLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField txtClave;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
